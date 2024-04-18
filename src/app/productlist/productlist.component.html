@@ -1,0 +1,332 @@
+<img src="../../assets/icon/top.png" class="backtop-btn" (click)="scrollToTop()"
+    [ngClass]="{ 'show-scrollTop': windowScrolled }">
+
+<body>
+    <div class="overlay" [class.visible]="isVisible" (click)="toggleSidebar()"></div>
+    <div class="sidebar-cart" [class.visible]="isVisible">
+        <div class="container-fluid p-4" id="main">
+            <h5>Your cart</h5>
+            <hr>
+            <div class="side-cart-con row">
+                <div class="col-3" style="width: 50px;">
+                    <img src="../../assets/img/item1.jpg" class="img-item">
+                </div>
+
+                <div class="col-9">
+                    <div class="row">
+                        <a href="#">Sketchbook</a>
+                    </div>
+
+                    <div class="row" style="margin-top: 20px;">
+                        <span>
+                            <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                            <input class="amount-num" style="text-align: center;" [value]="value">
+                            <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+
+                            <span class="price">15.000 VND</span>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <hr>
+
+            <p>Total <span class="price" style="color:black"><b>15.000 VND</b></span></p>
+            <input type="submit" value="Checkout" class="btn" routerLink="/check-out">
+        </div>
+        <!-- Cart checkout content goes here -->
+    </div>
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-label="Toggle navigation">
+                    <img src="../assets/icon/menu.png">
+                </button>
+
+                <a href="" class="tittle-con">
+                    <div style="display: flex; flex-direction: row; margin-right: 20px;">
+                        <h3 class="tittle">Nadococa</h3>
+                    </div>
+                </a>
+
+                <!-- Search Box -->
+                <div class="d-flex" style="margin: 0 auto;">
+                    <div class="dropdown">
+                        <button data-mdb-button-init data-mdb-ripple-init data-mdb-dropdown-init
+                            class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+                            aria-expanded="false" (click)="toggleDropdownMenu();" style="color: white;">
+                            Products
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" [(hidden)]="isOpen">
+                            <li><a class="dropdown-item" href="#" routerLink="/product-list">Sketchbook</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Brush</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Watercolor &raquo;
+                                </a>
+                                <ul class="dropdown-menu dropdown-submenu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Sakura</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Winsor & Newton</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Submenu item 3 &raquo; </a>
+                                        <ul class="dropdown-menu dropdown-submenu">
+                                            <li>
+                                                <a class="dropdown-item" href="#">Multi level 1</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Multi level 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Submenu item 4</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Submenu item 5</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="d-flex" style="margin-left: 20px;">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            style="width: 250px;">
+                    </form>
+                </div>
+                <!-- Search Box -->
+
+                <div [ngClass]="{'collapse': !isNavbarCollapsed, 'navbar-collapse': true}" id="navbarExample01">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item d-flex">
+                            <a class="nav-link" href="#" (click)="scroll(footer)">
+                                <img src="../assets/icon/customer-support.png" height="25px">
+                                <p class="hidden">Contact us</p>
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex">
+                            <a class="nav-link" href="#">
+                                <img src="../assets/icon/question.png" height="25px">
+                                <p class="hidden">Frequent ask questions</p>
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex">
+                            <a class="nav-link" href="#">
+                                <img src="../assets/icon/user.png" height="25px">
+                                <p class="hidden">Account</p>
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex">
+                            <a class="nav-link" href="#">
+                                <img src="../assets/icon/heart.png" height="25px">
+                                <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+                                <p class="hidden">Favorites</p>
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex">
+                            <a class="nav-link" (click)="toggleSidebar()">
+                                <img src="../assets/icon/shopping-cart.png" height="25px">
+                                <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+                                <p class="hidden">Cart</p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item d-flex">
+                            <a class="nav-link" href="#" (click)="scroll(footer)">Contact</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+
+    <div class="main-container">
+        <h5>Sketchbook</h5>
+        <div class="row d-flex">
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card item">
+                    <img class="card-img-top" src="../../assets/img/item1.jpg" alt="Card image cap">
+
+                    <div class="card-body item-body">
+                        <h5 class="card-title item-title">Card title</h5>
+                        <p class="card-text item-p">15.000 VND</p>
+                    </div>
+
+                    <span style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                        <input class="amount-num" style="text-align: center;" [value]="value">
+                        <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+                    </span>
+                    <div class="card-footer">
+                        <a href="#" class="btn-card"><img src="../../assets/icon/shopping-cart-w.png"> Add to
+                            cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card item">
+                    <img class="card-img-top" src="../../assets/img/item1.jpg" alt="Card image cap">
+
+                    <div class="card-body item-body">
+                        <h5 class="card-title item-title">Card title</h5>
+                        <p class="card-text item-p">15.000 VND</p>
+                    </div>
+
+                    <span style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                        <input class="amount-num" style="text-align: center;" [value]="value">
+                        <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+                    </span>
+                    <div class="card-footer">
+                        <a href="#" class="btn-card"><img src="../../assets/icon/shopping-cart-w.png"> Add to
+                            cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card item">
+                    <img class="card-img-top" src="../../assets/img/item1.jpg" alt="Card image cap">
+
+                    <div class="card-body item-body">
+                        <h5 class="card-title item-title">Card title</h5>
+                        <p class="card-text item-p">15.000 VND</p>
+                    </div>
+
+                    <span style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                        <input class="amount-num" style="text-align: center;" [value]="value">
+                        <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+                    </span>
+                    <div class="card-footer">
+                        <a href="#" class="btn-card"><img src="../../assets/icon/shopping-cart-w.png"> Add to
+                            cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card item">
+                    <img class="card-img-top" src="../../assets/img/item1.jpg" alt="Card image cap">
+
+                    <div class="card-body item-body">
+                        <h5 class="card-title item-title">Card title</h5>
+                        <p class="card-text item-p">15.000 VND</p>
+                    </div>
+
+                    <span style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                        <input class="amount-num" style="text-align: center;" [value]="value">
+                        <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+                    </span>
+                    <div class="card-footer">
+                        <a href="#" class="btn-card"><img src="../../assets/icon/shopping-cart-w.png"> Add to
+                            cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card item">
+                    <img class="card-img-top" src="../../assets/img/item1.jpg" alt="Card image cap">
+
+                    <div class="card-body item-body">
+                        <h5 class="card-title item-title">Card title</h5>
+                        <p class="card-text item-p">15.000 VND</p>
+                    </div>
+
+                    <span style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                        <input class="amount-num" style="text-align: center;" [value]="value">
+                        <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+                    </span>
+                    <div class="card-footer">
+                        <a href="#" class="btn-card"><img src="../../assets/icon/shopping-cart-w.png"> Add to
+                            cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card item">
+                    <img class="card-img-top" src="../../assets/img/item1.jpg" alt="Card image cap">
+
+                    <div class="card-body item-body">
+                        <h5 class="card-title item-title">Card title</h5>
+                        <p class="card-text item-p">15.000 VND</p>
+                    </div>
+
+                    <span style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <img src="../../assets/icon/minus.png" class="amount" (click)="minusCount()">
+                        <input class="amount-num" style="text-align: center;" [value]="value">
+                        <img src="../../assets/icon/plus.png" class="amount" (click)="plusCount()">
+                    </span>
+                    <div class="card-footer">
+                        <a href="#" class="btn-card"><img src="../../assets/icon/shopping-cart-w.png"> Add to
+                            cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" [length]="100"
+                #paginator>
+            </mat-paginator> -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white" #footer>
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/thulovesanji"
+                    role="button"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/nadococa/"
+                    role="button"><i class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a mdbRipple class="btn btn-outline-light btn-floating m-1"
+                    href="https://www.linkedin.com/in/th%C6%B0-ph%E1%BA%A1m-hu%E1%BB%B3nh-anh-92452b172/"
+                    role="button"><i class="fab fa-linkedin-in"></i></a>
+
+                <!-- Github -->
+                <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="https://github.com/thuolala"
+                    role="button"><i class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: #FFF5EA;">
+            © 2024 Copyright:
+            <a class="text-white" href="">nadococa.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>

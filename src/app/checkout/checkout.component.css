@@ -1,0 +1,346 @@
+.col-40 {
+    -ms-flex: 40%;
+    /* IE10 */
+    flex: 40%;
+}
+
+.col-50 {
+    -ms-flex: 50%;
+    /* IE10 */
+    flex: 50%;
+}
+
+.col-60 {
+    -ms-flex: 60%;
+    /* IE10 */
+    flex: 60%;
+}
+
+.col-40,
+.col-50,
+.col-60 {
+    padding: 0 16px;
+}
+
+.container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+#main input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+}
+
+#main  .btn {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#main .btn:hover {
+    background-color: #D4A373;
+}
+
+hr {
+    border: 1px solid lightgrey;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    flex: 1;
+}
+
+
+*:not(.fa, .fa-brands) {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.fab {
+    font-size: 15px;
+}
+
+.navbar {
+    /* background-color: rgba(41, 35, 35, 0.203) !important;
+    backdrop-filter: blur(50px); */
+}
+
+.my-ava {
+    cursor: pointer;
+    border: 2px solid white;
+    padding: 10px;
+    width: 250px;
+    background-size: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.my-ava:hover {}
+
+#navbarExample01 a {
+    color: black !important;
+}
+
+#navbarExample01 .fas {
+    color: white !important;
+}
+
+#navbarExample01 a:hover {
+    color: #D4A373 !important;
+    transition: 0.5s;
+}
+
+#navbarExample01 .nav-item {
+    margin-right: 20px;
+}
+
+.tittle {
+    font-size: 20px;
+    color: black !important;
+}
+
+.custom-btn {
+    border-radius: 20px;
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+
+.backtop-btn {
+    border: 1px solid white;
+    border-radius: 50%;
+    /* display: none; */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    cursor: pointer;
+    width: 40px;
+    opacity: 0;
+    background-color: rgba(41, 35, 35, 0.203) !important;
+    backdrop-filter: blur(50px);
+}
+
+.show-scrollTop {
+    opacity: 1 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.backtop-btn:hover {
+    opacity: 0.7;
+}
+
+.hidden {
+    display: none;
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #D4A373;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+    display: block;
+}
+
+.dropdown-toggle {
+    background-color: #D4A373;
+}
+
+.amount{
+    width: 22px;
+    background-color: black;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.amount-num{
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+/* For main */
+.main-container {
+    margin: 5% 30px;
+}
+
+.row {
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+}
+
+.card {
+    transition: 0.5s;
+    height: 150px;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.card-title {
+    color: #D4A373;
+    margin-right: 10px;
+}
+
+.ship-text {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.card-text {
+    margin-left: 10px;
+}
+
+/* For footer */
+footer {
+    min-height: 150px;
+    /* Change height to min-height */
+    margin-top: auto;
+    /* Add margin-top:auto */
+    background-color: rgba(0, 0, 0, 0.708);
+}
+
+footer a {
+    border: none !important;
+}
+
+footer a:hover {
+    background-color: #D4A373;
+    /* color: black; */
+}
+
+footer .text-white {
+    color: #FFF5EA;
+    text-decoration: none;
+}
+
+footer .text-white:hover {
+    background-color: transparent;
+}
+
+/* For small screen */
+@media only screen and (max-width: 700px) {
+    .hidden {
+        margin-left: 20px;
+        display: inline-flex;
+    }
+
+    .tittle-con {
+        display: none;
+    }
+
+    #navbarExample01 ul {
+        margin-top: 20px;
+    }
+
+    #navbarExample01 .nav-item {
+        margin-left: 20px;
+    }
+
+    /* For main */
+    .main-container {
+        margin: 15% 30px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .col-40{
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}
